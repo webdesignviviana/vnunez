@@ -1,512 +1,149 @@
-:root{
-
---bg:#f7f2ea;
---surface:#ffffff;
---surface-soft:#fbf7f2;
-
---text:#2d2824;
---muted:#7f7468;
-
---accent:#9a6e53;
---accent-soft:#c9ab95;
-
---border:#e8ddd0;
-
---radius:28px;
-
---shadow:
-0 18px 50px rgba(0,0,0,.06);
-
+/* 1. Variables de Color (Tonos más oscuros y ricos) */
+:root {
+    --bg-principal: #f8fafc;       /* Fondo general limpio */
+    --tonalidad-oscura: #0f172a;   /* Azul marino muy oscuro para títulos y secciones fuertes */
+    --tonalidad-media: #334155;    /* Gris azulado profundo para texto de lectura */
+    --acento-intenso: #1d4ed8;     /* Azul de acción, vivo pero con peso */
+    --acento-hover: #1e40af;       /* El azul de acción un paso más oscuro */
+    --blanco-puro: #ffffff;
 }
 
-/* RESET */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* 2. Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-scroll-behavior:smooth;
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-principal);
+    color: var(--tonalidad-media);
+    line-height: 1.6;
 }
 
-body{
-
-font-family:'Inter',sans-serif;
-
-background:var(--bg);
-
-color:var(--text);
-
-line-height:1.7;
-
-overflow-x:hidden;
+/* 3. Sección Hero */
+.hero {
+    background: linear-gradient(135deg, var(--tonalidad-oscura) 0%, #1e293b 100%);
+    color: var(--blanco-puro);
+    padding: 100px 20px;
+    text-align: center;
 }
 
-/* NAVBAR */
-
-.navbar{
-
-position:fixed;
-top:0;
-left:0;
-width:100%;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-padding:22px 8%;
-
-background:rgba(247,242,234,.72);
-
-backdrop-filter:blur(18px);
-
-z-index:999;
-
-border-bottom:1px solid rgba(0,0,0,.04);
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.logo{
-
-display:flex;
-align-items:center;
-gap:10px;
-
-font-weight:500;
-font-size:1rem;
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
 }
 
-.logo span{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:2rem;
-
-font-weight:700;
-
-letter-spacing:.05em;
+.hero h1 span {
+    color: #60a5fa; /* Un celeste brillante para romper la monotonía */
 }
 
-.nav-links{
-
-display:flex;
-gap:32px;
+.hero p {
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.nav-links a{
-
-text-decoration:none;
-color:var(--text);
-
-font-size:.95rem;
-
-transition:.35s;
+/* 4. Botones con Vida (Micro-interacciones) */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
 }
 
-.nav-links a:hover{
-
-color:var(--accent);
+.btn-primary, .btn-secondary {
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 
-/* BOTONES */
-
-.btn-nav,
-.btn-primary,
-.btn-secondary{
-
-padding:15px 24px;
-
-border-radius:999px;
-
-text-decoration:none;
-
-transition:.35s ease;
-
-font-size:.95rem;
+.btn-primary {
+    background-color: var(--acento-intenso);
+    color: var(--blanco-puro);
+    border: none;
 }
 
-.btn-nav,
-.btn-primary{
-
-background:var(--accent);
-
-color:white;
+.btn-primary:hover {
+    background-color: var(--acento-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(29, 78, 216, 0.4);
 }
 
-.btn-secondary{
-
-border:1px solid var(--border);
-
-color:var(--text);
+.btn-secondary {
+    background-color: transparent;
+    color: var(--blanco-puro);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.btn-nav:hover,
-.btn-primary:hover,
-.btn-secondary:hover{
-
-transform:translateY(-3px);
+.btn-secondary:hover {
+    border-color: var(--blanco-puro);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* HERO */
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-align-items:center;
-
-padding:0 8%;
-
-position:relative;
-overflow:hidden;
+/* 5. Sección de Servicios y Tarjetas con Profundidad */
+.services {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.hero-bg{
-
-position:absolute;
-right:-120px;
-top:120px;
-
-width:520px;
-height:520px;
-
-background:linear-gradient(
-180deg,
-#e8d9ca,
-#f7f2ea
-);
-
-border-radius:50%;
-
-opacity:.65;
+.services h2 {
+    text-align: center;
+    font-size: 2.25rem;
+    color: var(--tonalidad-oscura);
+    margin-bottom: 50px;
+    font-weight: 800;
 }
 
-.hero-content{
-
-max-width:760px;
-
-position:relative;
-z-index:2;
+.grid-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-.eyebrow{
-
-text-transform:uppercase;
-
-letter-spacing:.18em;
-
-font-size:.78rem;
-
-color:var(--accent);
-
-margin-bottom:18px;
+/* El secreto contra lo plano: Sombras difusas y movimiento */
+.card {
+    background-color: var(--blanco-puro);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(15, 23, 42, 0.04); /* Borde casi invisible */
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hero h1{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:5rem;
-
-line-height:1;
-
-font-weight:600;
-
-margin-bottom:28px;
+.card:hover {
+    transform: translateY(-6px); /* Se eleva */
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12); /* La sombra se expande */
 }
 
-.hero-text{
-
-max-width:620px;
-
-color:var(--muted);
-
-font-size:1.08rem;
-
-margin-bottom:40px;
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
-.hero-buttons{
-
-display:flex;
-gap:14px;
-flex-wrap:wrap;
+.card h3 {
+    color: var(--tonalidad-oscura);
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 700;
 }
 
-.hero-shape{
-
-position:absolute;
-
-bottom:-140px;
-right:-90px;
-
-width:360px;
-height:360px;
-
-background:rgba(201,171,149,.18);
-
-border-radius:40% 60% 60% 40%;
-}
-
-/* SECTIONS */
-
-.services,
-.projects,
-.cta{
-
-padding:120px 8%;
-}
-
-.section-head{
-
-margin-bottom:60px;
-}
-
-.section-head p{
-
-text-transform:uppercase;
-
-letter-spacing:.18em;
-
-font-size:.75rem;
-
-color:var(--accent);
-
-margin-bottom:10px;
-}
-
-.section-head h2{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:3.3rem;
-
-font-weight:600;
-}
-
-/* SERVICES */
-
-.services-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
-
-gap:32px;
-}
-
-.service-card{
-
-background:var(--surface);
-
-padding:50px 36px;
-
-border-radius:var(--radius);
-
-box-shadow:var(--shadow);
-
-position:relative;
-
-transition:.45s ease;
-}
-
-.service-card:hover{
-
-transform:translateY(-10px);
-}
-
-.service-card h3{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:2rem;
-
-margin-bottom:14px;
-}
-
-.service-card p{
-
-color:var(--muted);
-}
-
-.recommended{
-
-border:1px solid rgba(154,110,83,.25);
-
-transform:scale(1.03);
-}
-
-.badge{
-
-position:absolute;
-
-top:-14px;
-left:28px;
-
-background:var(--accent);
-
-color:white;
-
-padding:9px 14px;
-
-font-size:.72rem;
-
-letter-spacing:.1em;
-
-border-radius:999px;
-}
-
-/* PROJECTS */
-
-.project-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
-
-gap:30px;
-}
-
-.project-card{
-
-height:360px;
-
-background:var(--surface-soft);
-
-border-radius:var(--radius);
-
-box-shadow:var(--shadow);
-
-display:flex;
-align-items:end;
-
-padding:32px;
-
-transition:.45s;
-}
-
-.project-card:hover{
-
-transform:translateY(-10px);
-}
-
-.project-card h3{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:2rem;
-}
-
-/* CTA */
-
-.cta{
-
-text-align:center;
-}
-
-.cta h2{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:3rem;
-
-max-width:760px;
-
-margin:auto auto 35px;
-}
-
-/* FOOTER */
-
-.footer{
-
-padding:80px 8%;
-
-text-align:center;
-}
-
-.footer h3{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:2rem;
-
-margin-bottom:10px;
-}
-
-.footer p{
-
-color:var(--muted);
-
-margin-bottom:12px;
-}
-
-/* WSP */
-
-.whatsapp{
-
-position:fixed;
-
-right:28px;
-bottom:28px;
-
-width:62px;
-height:62px;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-border-radius:50%;
-
-background:var(--accent);
-
-color:white;
-
-text-decoration:none;
-
-font-size:1.1rem;
-
-box-shadow:var(--shadow);
-
-transition:.35s;
-
-z-index:999;
-}
-
-.whatsapp:hover{
-
-transform:translateY(-4px);
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.nav-links,
-.btn-nav{
-display:none;
-}
-
-.hero h1{
-font-size:3.2rem;
-}
-
-.section-head h2{
-font-size:2.5rem;
-}
-
-.cta h2{
-font-size:2.2rem;
-}
-
-.hero-bg{
-width:320px;
-height:320px;
-}
-
+.card p {
+    color: var(--tonalidad-media);
+    font-size: 1rem;
 }
